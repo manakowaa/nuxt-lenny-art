@@ -1,20 +1,21 @@
 <template>
   <header class="page-header">
     <div class="page-header__container">
-      <a class="page-header__logo" href="#"
-        >Logo>
+      <NuxtLink to="/" class="page-header__logo">
         <SvgIcon
           class="page-header__logo-icon"
           name="logo"
           width="202"
           height="147"
         />
-      </a>
+      </NuxtLink>
       <nav
         class="page-header__nav"
         :class="{ 'page-header__nav--active': navActive }"
       >
-        <a href="#" class="page-header__nav-link">Мероприятия</a>
+        <NuxtLink class="page-header__nav-link" to="/events"
+          >Мероприятия</NuxtLink
+        >
         <a href="#" class="page-header__nav-link">Блог</a>
         <a href="#" class="page-header__nav-link">О нас</a>
         <a href="#" class="page-header__nav-link">Контакты</a>
@@ -97,7 +98,7 @@ const toggleNav = () => {
   }
 
   &__container {
-    .container();
+    .container;
     position: relative;
     display: flex;
     align-items: center;
@@ -190,6 +191,9 @@ const toggleNav = () => {
       font-size: 16px;
       line-height: 22px;
     }
+     &.router-link-active {
+        color: @red_dark;
+      }
   }
   &__nav-user {
     display: none;
@@ -257,14 +261,27 @@ const toggleNav = () => {
       color: @black;
       font-size: 0;
     }
-    &:hover {
+    &:active {
       background-color: @black;
       color: @white;
       @media @bw1020 {
-        background-color: transparent;
+        background-color: @black;
+         color: @red;
+      }
+    }
+    &:hover {
+      @media (hover: hover) {
+       @media @bw1020 {
+        background-color: @black;
+        color: @white;
+       }
+      @media @bw1020 {
+        background: none;
+         color: @red;
       }
     }
   }
+}
   &__user-icon {
     display: none;
     @media @bw1020 {
@@ -311,14 +328,14 @@ const toggleNav = () => {
       top: 25px;
     }
   }
-   &--active {
-        &::before {
-          transform: translate(0px, 6px) rotate(45deg);
-          box-shadow: none;
-        }
-        &::after {
-          transform: translate(0px, -6px) rotate(-45deg);
-        }
-      }
-    }
+  // &--active {
+  //   &::before {
+  //     transform: translate(0px, 6px) rotate(45deg);
+  //     box-shadow: none;
+  //   }
+  //   &::after {
+  //     transform: translate(0px, -6px) rotate(-45deg);
+  //   }
+  // }
+}
 </style>

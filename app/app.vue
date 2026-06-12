@@ -2,7 +2,9 @@
   <div class="app">
     <PageHeader class="app__header" />
 
-    <main class="app__main">Основное тело страницы</main>
+    <main class="app__main">
+      <NuxtPage class="app__page" />
+    </main>
 
     <PageFooter class="app__footer" />
   </div>
@@ -96,9 +98,15 @@ useHead({
 
   &__main {
     flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
+  &__page {
+    flex: 1 0 auto;
   }
   &__footer {
     flex: 0 0 auto;
+    margin-top: auto;
   }
 }
 </style>

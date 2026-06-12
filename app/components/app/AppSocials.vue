@@ -1,19 +1,19 @@
 <template>
   <div class="app-socials">
-    <a href="#" target="blank" class="app-socials__VK">
+    <a href="#" rel="nofollow noreferrer noopener" target="blank" class="app-socials__link">
       <SvgIcon
-        class="app-social__VK-icon x-btn"
+        class="app-socials__link"
         width="58"
-        height="18"
-        name="vk1"
+        height="58"
+        name="vk"
       />
     </a>
-    <a href="#" target="blank" class="app-socials__VK">
+    <a href="#" target="blank" class="app-socials__link">
       <SvgIcon
-        class="app-socials__VK-icon x-btn"
+        class="app-socials__link"
         width="58"
-        height="18"
-        name="vk2"
+        height="58"
+        name="vk"
       />
     </a>
   </div>
@@ -22,31 +22,32 @@
 <style lang="less">
 .app-socials {
   display: flex;
-  gap: 20px;
   align-items: center;
-  justify-content: space-between;
-  //   width: 100%;
-  @media @bw960 {
-    flex-wrap: wrap;
-    justify-content: left;
-  }
-
-  &__VK {
-    display: inline-block;
-    margin-right: 10px;
-    gap: 12px;
-    white-space: nowrap;
-    cursor: pointer;
-  }
-
-  &__VK-icon {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    @media @bw370 {
-      max-width: 65px;
-      height: 65px;
+  &__link {
+    flex-shrink: 0;
+    margin-right: 44px;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    color: @black;
+    font-size: 0;
+    text-decoration: none;
+    transition: color 0.2s;
+    &:active {
+      color: @red;
     }
+    &:hover {
+      @media (hover: hover) {
+        color: @red;
+      }
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  &__icon {
+width: 100%;
+height: 100%;
   }
 }
 </style>
