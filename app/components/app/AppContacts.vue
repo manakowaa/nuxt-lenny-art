@@ -67,9 +67,10 @@
         </li>
       </ul>
 
-      <div class="app-contacts__map" id="js-app-contactsMap"></div>
+      <div class="app-contacts__map-container">
+        <TheMap class="app-contacts__map" />
+      </div>
     </div>
-
   </section>
 </template>
 
@@ -78,7 +79,7 @@
 <style lang="less">
 .app-contacts {
   .container;
-  
+
   &__wrapper {
     display: flex;
     align-items: center;
@@ -151,7 +152,6 @@
     min-width: 110px;
     min-height: 110px;
   }
-  
 
   &__item-content {
     display: flex;
@@ -201,13 +201,12 @@
         }
       }
     }
-    &:last-child
-    {
+    &:last-child {
       margin: 0;
     }
   }
 
-  &__map {
+  &__map-container {
     width: 750px;
     height: 490px;
     margin-left: auto;

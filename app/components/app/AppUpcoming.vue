@@ -6,14 +6,16 @@
         Мероприятия
     </h2>
 
-      <div class="app-app-upcoming__swiper">
+    <TheSwiper :component="EventCard" :list="list" class="app-upcoming__swiper"/>
+
+      <!-- <div class="app-upcoming__swiper">
       <EventCard
         v-for="card in [list[0]]"
         :key="card.slug"
         :data="card"
         class="app-listing__card"
       />
-      </div>
+      </div> -->
 
     <a href="#" class="app-upcoming__link link">Смотреть все</a>
   </div>
@@ -22,6 +24,9 @@
 </template>
 
 <script setup>
+
+ import { EventCard } from "#components";
+ 
    const list = ref([]);
 
   const URL = "http://localhost:3000/json/events.json";

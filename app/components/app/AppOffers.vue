@@ -3,24 +3,42 @@
     <h4 class="app-offers__title">Я ХОЧУ:</h4>
 
     <div class="app-offers__btns">
-      <button type="button" class="app-offers__btn btn btn--red">
+      <button
+        type="button"
+        class="app-offers__btn btn btn--red"
+        @click="openPopup()"
+      >
         Провести мероприятие
       </button>
 
-      <button type="button" class="app-offers__btn btn">Стать арендатором</button>
+      <button type="button" class="app-offers__btn btn">
+        Стать арендатором
+      </button>
     </div>
+
+    <ModalWindow
+      alive
+      :name="'getOffer'"
+      :title="' Заполните форму<br />и мы подберем площадку'"
+    ></ModalWindow>
   </section>
 </template>
 
-<script setup></script>
+<script setup>
+
+ const store = useStore();
+  const openPopup = () => {
+    store.openModal("getOffer");
+  };
+</script>
 
 <style lang="less">
 .app-offers {
+  .container;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  .container ();
   &__title {
     text-align: center;
     margin-bottom: 46px;

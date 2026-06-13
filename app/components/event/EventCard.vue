@@ -45,7 +45,7 @@
 <style lang="less">
 .event-card {
   display: flex;
-  width: 406px;
+  width: 405px;
   max-width: 100%;
   min-width: 280px;
   color: @black;
