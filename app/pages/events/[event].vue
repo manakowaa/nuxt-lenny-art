@@ -28,6 +28,8 @@
 
     <div class="event__container">
       <div class="content event__content" v-html="data.content"></div>
+
+      <EventReserve class="event__reserve" />
     </div>
   </article>
 </template>
@@ -59,14 +61,6 @@ const datetime = computed(() => {
 <style lang="less">
 .event {
   padding: 40px 0 150px;
-  //  box-sizing: border-box;
-  //   display: flex;
-  //   flex-direction: column;
-  //   width: 100%;
-  //   max-width: 1414px;
-  //   margin: 0 auto;
-  //   padding-left: 40px;
-  //   padding-right: 40px;
   @media @bw768 {
     padding: 80px 0 100px;
   }
@@ -78,83 +72,149 @@ const datetime = computed(() => {
   &__container {
     .container;
   }
+
   &__about {
     display: flex;
-    gap: 40px;
-    align-items: center;
     justify-content: center;
-    flex-wrap: nowrap;
-    flex-direction: row;
-  }
-  &__title {
-    text-align: center;
-    margin-bottom: 80px;
-    color: @black;
-    font-family: @font2;
-    font-style: Medium;
-    font-size: 70px;
-    font-weight: 500;
-    line-height: 90px;
-    letter-spacing: 0%;
+    align-items: center;
     @media @bw768 {
-      font-size: 40px;
-      line-height: 51px;
-      margin-bottom: 64px;
+      flex-wrap: wrap;
     }
-    @media @bw500 {
-      font-size: 25px;
-      line-height: 36px;
-      margin-bottom: 40px;
-    }
-    @media @bw370 {
-      font-size: 20px;
-      line-height: 26px;
-      margin-bottom: 40px;
+    &::before {
+      @media @bw768 {
+        content: "";
+        display: block;
+        flex-shrink: 0;
+        width: 100%;
+      }
     }
   }
 
-  &__picture {
-    object-fit: cover;
-    max-width: 506px;
-    width: 506px;
-    // height: 532px;
+  &__info {
+    flex-shrink: 0;
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 13px 0;
+    font-weight: 300;
+    font-family: @font3;
+    text-align: right;
+    text-transform: uppercase;
     @media @bw1340 {
-      width: 426px;
-    }
-    @media @bw1170 {
-      width: 426px;
-    }
-    @media @bw1020 {
-      width: 426px;
+      padding: 8px 0;
     }
     @media @bw768 {
-      width: 245px;
+      width: calc(50% - 10px);
     }
-  }
-  &__info-text {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: @black;
-    font-family: @font3;
-    font-size: 40px;
-    font-weight: 500;
-    @media @bw1170 {
-      width: 123px;
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 140px;
+      max-width: 100%;
+      height: 1px;
+      background-image: linear-gradient(
+        270deg,
+        #1c1b1b 0%,
+        rgba(255, 255, 255, 0) 82.86%
+      );
+      @media @bw1340 {
+        width: 85px;
+      }
+    }
+    &::before {
+      top: 0;
+    }
+    &::after {
+      bottom: 0;
+    }
+    &:first-child {
+      @media @bw768 {
+        margin-right: 10px;
+      }
+      &::before,
+      &::after {
+        right: 0;
+      }
+    }
+    &:last-child {
+      align-items: flex-start;
+      text-align: left;
+      @media @bw768 {
+        margin-right: 10px;
+      }
+      &::before,
+      &::after {
+        left: 0;
+        background-image: linear-gradient(
+          90deg,
+          #1c1b1b 0%,
+          rgba(255, 255, 255, 0) 82.86%
+        );
+      }
     }
   }
 
   &__time {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: @black;
-    font-family: @font3;
-    font-size: 40px;
-    font-weight: 500;
-    @media @bw1170 {
-      width: 133px;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 36px;
+    @media @bw1340 {
+      font-size: 18px;
+      line-height: 22px;
     }
+    &[data-caption] {
+      &::after {
+        content: attr(data-caption);
+        margin-left: 10px;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 19px;
+        @media @bw1340 {
+          font-size: 12px;
+          line-height: 14px;
+        }
+      }
+    }
+  }
+
+  &__info-text {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 19px;
+    @media @bw1340 {
+      font-size: 12px;
+      line-height: 14px;
+    }
+  }
+
+  &__picture {
+    display: block;
+    width: 497px;
+    margin: 0 50px;
+    @media @bw1660 {
+      width: 426px;
+    }
+    @media @bw1340 {
+      width: 245px;
+      margin: 0 40px;
+    }
+    @media @bw768 {
+      order: -1;
+      margin: 0 0 40px;
+    }
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+  }
+  &__content {
+    max-width: 830px;
+    margin-bottom: 80px;
   }
 }
 </style>

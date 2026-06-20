@@ -20,16 +20,21 @@
       alive
       :name="'getOffer'"
       :title="' Заполните форму<br />и мы подберем площадку'"
-    ></ModalWindow>
+    >
+      <EventsForm @close="closePopup" />
+    </ModalWindow>
   </section>
 </template>
 
 <script setup>
+const store = useStore();
+const openPopup = () => {
+  store.openModal("getOffer");
+};
 
- const store = useStore();
-  const openPopup = () => {
-    store.openModal("getOffer");
-  };
+const closePopup = () => {
+  store.closeModal("getOffer");
+};
 </script>
 
 <style lang="less">
@@ -82,6 +87,9 @@
   &__btn {
     width: 280px;
     height: 49px;
+    @media @bw370 {
+      height: 69px;
   }
+}
 }
 </style>

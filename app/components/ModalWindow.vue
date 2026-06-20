@@ -24,7 +24,6 @@
               <h2 class="modal-window__title" v-html="title"></h2>
 
               <slot>
-                <input type="text" />
               </slot>
             </div>
           </div>

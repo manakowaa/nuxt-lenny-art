@@ -20,19 +20,20 @@
         <a href="#" class="page-header__nav-link">О нас</a>
         <a href="#" class="page-header__nav-link">Контакты</a>
 
-        <!-- <div class="page-header__nav-user">
+        <div class="page-header__nav-user">
     <a href="#" class="page-header__nav-user-link">
       Александр С.
     </a>
     
     <a href="#" class="page-header__nav-logout">
-      <svg class="page-header__nav-logout-icon" width="24" height="24">
-        <use
-          xlink:href="assets/icons/symbols.svg#door"
-        ></use>
-      </svg>
+      <SvgIcon
+          class="page-header__nav-logout-icon"
+          name="door"
+          width="24"
+          height="24"
+        />
     </a>
-  </div> -->
+  </div>
       </nav>
 
       <div class="page-header__right-block">

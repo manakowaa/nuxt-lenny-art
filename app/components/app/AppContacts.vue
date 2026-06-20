@@ -148,9 +148,18 @@
   }
 
   &__item-icon {
+    flex-shrink: 0;
+    display: flex;
+    // margin-right: 55px;
     margin: auto;
+    background: @black;
+    color: @red;
     min-width: 110px;
     min-height: 110px;
+    @media @bw768 {
+    min-width: 65px;
+    min-height: 65px;
+    }
   }
 
   &__item-content {
