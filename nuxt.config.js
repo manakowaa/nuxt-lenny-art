@@ -18,7 +18,9 @@ export default defineNuxtConfig({
        },
      },
    },
-   plugins: [svgLoader()],
+   plugins: [svgLoader({
+    svgo: false
+   })],
  },
 
   modules: ["@pinia/nuxt"],

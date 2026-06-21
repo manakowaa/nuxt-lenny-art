@@ -4,7 +4,7 @@
       <SvgIcon
         name="logo_big"
         class="the-logo__icon"
-        witdh="1920"
+        width="1920"
         height="325"
       />
     </div>
