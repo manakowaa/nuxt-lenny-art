@@ -55,7 +55,7 @@
     }
   }
   &__offers {
-    margin: 0 auto 200px;
+    margin: 100px auto 200px;
     @media @bw1340 {
       margin-bottom: 130px;
     }

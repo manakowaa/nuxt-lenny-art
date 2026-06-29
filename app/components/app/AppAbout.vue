@@ -109,7 +109,7 @@
     box-sizing: border-box;
     width: 64.9925%;
     max-width: 100%;
-    margin: 0 0 110px auto;
+    margin: 0 0 100px auto;
     font-size: 18px;
     line-height: 25px;
     @media @bw1020 {
